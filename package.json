@@ -1,0 +1,29 @@
+{
+  "name": "delance",
+  "version": "1.0.0",
+  "description": "Decentralized freelancing platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bitnician/Delance-truffle.git"
+  },
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "blockchain",
+    "decentralize",
+    "delance"
+  ],
+  "author": "bitnician",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bitnician/Delance-truffle/issues"
+  },
+  "homepage": "https://github.com/bitnician/Delance-truffle#readme",
+  "dependencies": {
+    "truffle": "^5.1.30"
+  }
+}
