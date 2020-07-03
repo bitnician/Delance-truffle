@@ -18,9 +18,9 @@ contract Delance {
 
     constructor(address _freelancer, uint256 _deadline) public payable {
         employer = msg.sender;
-        price = msg.value;
         freelancer = _freelancer;
         deadline = _deadline;
+        price = msg.value;
     }
 
     modifier onlyFreelancer() {
