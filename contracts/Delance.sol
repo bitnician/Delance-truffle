@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.6.9;
+pragma experimental ABIEncoderV2;
 
 contract Delance {
     struct Request {
@@ -14,13 +15,17 @@ contract Delance {
     address public employer;
     address public freelancer;
     uint256 public deadline;
-    uint256 price;
+    uint256 public price;
 
     constructor(address _freelancer, uint256 _deadline) public payable {
         employer = msg.sender;
         freelancer = _freelancer;
         deadline = _deadline;
         price = msg.value;
+    }
+
+    receive() external payable {
+        price += msg.value;
     }
 
     modifier onlyFreelancer() {
@@ -32,17 +37,17 @@ contract Delance {
         public
         onlyFreelancer
     {
+        require(msg.sender == freelancer, "Only Freelancer!");
         Request memory request = Request({
             title: _title,
             amount: _amount,
             locked: true,
             paid: false
         });
-
         requests.push(request);
     }
 
-    receive() external payable {
-        price += msg.value;
+    function getAllRequests() public view returns (Request[] memory) {
+        return requests;
     }
 }
