@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.6.9;
+pragma solidity 0.7.4;
 pragma experimental ABIEncoderV2;
 
 contract Delance {
@@ -12,12 +12,20 @@ contract Delance {
 
     Request[] public requests;
 
-    address public employer;
-    address public freelancer;
+    address payable public employer;
+    address payable public freelancer;
+    
     uint256 public deadline;
     uint256 public price;
+    
+    bool locked = false;
+    
+    
+    event RequestUnlocked(bool locked);
+    event RequestCreated(string title, uint256 amount, bool locked, bool paid);
+    event RequestPaid(address receiver, uint256 amount);
 
-    constructor(address _freelancer, uint256 _deadline) public payable {
+    constructor(address payable _freelancer, uint256 _deadline) payable {
         employer = msg.sender;
         freelancer = _freelancer;
         deadline = _deadline;
@@ -32,6 +40,18 @@ contract Delance {
         require(msg.sender == freelancer, "Only Freelancer!");
         _;
     }
+    
+    modifier onlyEmployer() {
+        require(msg.sender == employer, "Only Employer!");
+        _;
+    }
+
+
+    function getBalance() public view returns (uint256) {
+        return address(this).balance;
+    }
+    
+    
 
     function createRequest(string memory _title, uint256 _amount)
         public
@@ -45,9 +65,46 @@ contract Delance {
             paid: false
         });
         requests.push(request);
+        
+        emit RequestCreated(_title, _amount, request.locked, request.paid);
     }
 
     function getAllRequests() public view returns (Request[] memory) {
         return requests;
     }
+    
+    
+    function unlockRequest(uint256 _index)
+        public 
+        onlyEmployer
+    {
+        Request storage request = requests[_index];
+        require(request.locked, "Already unlocked");
+        request.locked = false;
+        
+        emit RequestUnlocked(request.locked);
+    }
+    
+    
+    function payRequest(uint256 _index) public onlyFreelancer {
+        
+        require(!locked,'Reentrant detected!');
+        
+        Request storage request = requests[_index];
+        require(!request.locked, "Request is locked");
+        require(!request.paid, "Already paid");
+        
+        locked = true;
+        
+        (bool success, bytes memory transactionBytes) = freelancer.call{value:request.amount}('');
+        
+        require(success, "Transfer failed.");
+        
+        request.paid = true;
+        
+        locked = false;
+        
+        emit RequestPaid(msg.sender, request.amount);
+    }
+    
 }
