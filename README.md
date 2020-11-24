@@ -10,6 +10,7 @@ In this project, we are going to build a freelancing platform. our participants 
 All of the freelancing projects have two important attributes: deadline and price. 
 The employer usually likes to get the project before the deadline and the freelancer needs to get the project fee once he delivered the project.
 The freelancer may also want to break the project to a couple of parts and request for payment after finishing each part. On the other hand, the employer would like to have some guarantee to make him sure the project will be delivered before the deadline.
+
 Suppose the freelancer and employer get familiar together on twitter and make some agreement about the project price and the deadline.
 The employer doesn’t want to deposit all of the payments before getting the project and the freelancer doesn’t want to start the project before getting any payment. 
 He doesn’t even know about the financial situation of the employer. Does the employer have enough money to pay? 
