@@ -21,18 +21,18 @@ Here we can use a smart contract: a self-executing contract with the terms of th
 1. The employer will create a smart contract that accepts three arguments: the freelancer address, the deadline, and the project fee. the important thing here is the project fee is not just a number. the employer should deposit some ether in the smart contract. the balance of the smart contract will be the project fee. the interesting thing here is the employer cannot withdraw any amount of ether unless in some situations that we explain later. 
 the image below shows the HTML form that the employer used to create a contract. notice that we don’t have an input for price. the employer should deposit some ether through his/her wallet while creating the contract. if no ether is sent, an Error will throw in the contract codes.
 
-[](https://miro.medium.com/max/1400/1*sJNfQLw_cV6C1Bz5OyjbxQ.png)
+[a](https://miro.medium.com/max/1400/1*sJNfQLw_cV6C1Bz5OyjbxQ.png)
 
 2. The freelancer can check the contract properties to see if the deadline and the project fee are matching with their agreements or not(the freelancer can find the contract on the blockchain. the contracts are also can be visible in our interface). if everything was right, the freelancer start the project.
 When the project reached a good point, the freelancer can create a request and ask for some amount of ether.
 the image below shows the HTML form that the freelancer used to create a request for payment.
 
-[](https://miro.medium.com/max/1400/1*S3Qvd-xIvJ6eWTbkFC0a-w.png)
+[b](https://miro.medium.com/max/1400/1*S3Qvd-xIvJ6eWTbkFC0a-w.png)
 
 3. We show all of the project details in our interface. the employer will see the freelancer requests and can unlock each of them. after that, the freelancer can withdraw the ether in just one click. the payments will be in his wallet up to 1 minute later.
 Below image shows you all of the project details
 
-[](https://miro.medium.com/max/1400/1*M00OiyDw9EaUsr6Q3q-ntQ.png)
+[c](https://miro.medium.com/max/1400/1*M00OiyDw9EaUsr6Q3q-ntQ.png)
 
 
 ## Delance rules
