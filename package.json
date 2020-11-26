@@ -1,29 +1,21 @@
 {
-  "name": "delance",
+  "name": "upwork",
   "version": "1.0.0",
-  "description": "Decentralized freelancing platform",
-  "main": "index.js",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "web3": "^1.2.9"
+  },
+  "devDependencies": {
+    "chai-as-promised": "^7.1.1",
+    "chai": "^4.2.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/bitnician/Delance-truffle.git"
-  },
-  "keywords": [
-    "solidity",
-    "ethereum",
-    "blockchain",
-    "decentralize",
-    "delance"
-  ],
-  "author": "bitnician",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/bitnician/Delance-truffle/issues"
-  },
-  "homepage": "https://github.com/bitnician/Delance-truffle#readme",
-  "dependencies": {
-    "truffle": "^5.1.30"
-  }
+  "author": "",
+  "license": "ISC"
 }
