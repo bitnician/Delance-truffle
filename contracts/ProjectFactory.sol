@@ -3,7 +3,7 @@ pragma solidity 0.6.9;
 
 import "./Project.sol";
 
-contract DelanceFactory {
+contract ProjectFactory {
     Project[] public deployedProjects;
 
     mapping(address => Project[]) public employerProjects;

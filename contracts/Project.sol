@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.6.9;
 
-contract Delance {
+contract Project {
     enum Status {COMPLETED, CENCELED, PENDING}
 
     struct Request {
