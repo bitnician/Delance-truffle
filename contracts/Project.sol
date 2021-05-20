@@ -2,7 +2,7 @@
 pragma solidity 0.6.9;
 
 contract Project {
-    enum Status {COMPLETED, CENCELED, PENDING}
+    enum Status {COMPLETED, CANCELED, PENDING}
 
     struct Request {
         string title;
