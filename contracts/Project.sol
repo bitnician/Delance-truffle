@@ -2,7 +2,7 @@
 pragma solidity 0.6.9;
 
 contract Project {
-    enum Status {COMPLETED, CENCELED, PENDING}
+    enum Status {COMPLETED, CANCELED, PENDING}
 
     struct Request {
         string title;
@@ -119,7 +119,7 @@ contract Project {
 
     function cancelProject() public onlyEmployer onlyPendingProject {
         require(now > deadline);
-        status = Status.CENCELED;
+        status = Status.CANCELED;
         employer.transfer(remainingPayments);
 
         emit ProjectCanceled(remainingPayments, status);
